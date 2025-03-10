@@ -198,6 +198,8 @@ def do_idea(
         )
         if model == "deepseek-coder-v2-0724":
             main_model = Model("deepseek/deepseek-coder")
+        elif model in ["deepseek-chat", "deepseek-reasoner"]:
+            main_model = Model("deepseek/" + model)
         elif model == "llama3.1-405b":
             main_model = Model("openrouter/meta-llama/llama-3.1-405b-instruct")
         else:
@@ -232,6 +234,8 @@ def do_idea(
             fnames = [exp_file, writeup_file, notes]
             if model == "deepseek-coder-v2-0724":
                 main_model = Model("deepseek/deepseek-coder")
+            elif model in ["deepseek-chat", "deepseek-reasoner"]:
+                main_model = Model("deepseek/" + model)
             elif model == "llama3.1-405b":
                 main_model = Model("openrouter/meta-llama/llama-3.1-405b-instruct")
             else:
@@ -254,6 +258,7 @@ def do_idea(
             raise ValueError(f"Writeup format {writeup} not supported.")
 
         print_time()
+
         print(f"*Starting Review*")
         ## REVIEW PAPER
         if writeup == "latex":
@@ -261,8 +266,8 @@ def do_idea(
                 paper_text = load_paper(f"{folder_name}/{idea['Name']}.pdf")
                 review = perform_review(
                     paper_text,
-                    model="gpt-4o-2024-05-13",
-                    client=openai.OpenAI(),
+                    model=client_model,
+                    client=client,
                     num_reflections=5,
                     num_fs_examples=1,
                     num_reviews_ensemble=5,
@@ -287,8 +292,8 @@ def do_idea(
                 paper_text = load_paper(f"{folder_name}/{idea['Name']}_improved.pdf")
                 review = perform_review(
                     paper_text,
-                    model="gpt-4o-2024-05-13",
-                    client=openai.OpenAI(),
+                    model=client_model,
+                    client=client,
                     num_reflections=5,
                     num_fs_examples=1,
                     num_reviews_ensemble=5,

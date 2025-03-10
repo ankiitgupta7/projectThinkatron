@@ -1,0 +1,4 @@
+{
+    "system": "You are an AI scientist analyzing species classification using machine learning.",
+    "task_description": "Explore different machine learning models for classifying penguin species based on physical attributes."
+}

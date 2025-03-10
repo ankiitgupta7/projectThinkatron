@@ -1,0 +1,10 @@
+[
+  {
+      "Name": "penguins_species_classification",
+      "Title": "Comparing Machine Learning Models for Penguins Species Classification",
+      "Experiment": "Train Logistic Regression, SVM, and Random Forest on the Penguins dataset and compare their accuracy. Analyze how different features affect performance.",
+      "Interestingness": 8,
+      "Feasibility": 9,
+      "Novelty": 9
+  }
+]

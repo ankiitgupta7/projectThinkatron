@@ -1,0 +1,20 @@
+[
+    {
+        "Name": "penguins_species_classification",
+        "Title": "Comparing Machine Learning Models for Penguins Species Classification",
+        "Experiment": "Train Logistic Regression, SVM, and Random Forest on the Penguins dataset and compare their accuracy. Analyze how different features affect performance.",
+        "Interestingness": 8,
+        "Feasibility": 9,
+        "Novelty": 9,
+        "novel": true
+    },
+    {
+        "Name": "penguins_feature_importance",
+        "Title": "Analyzing Feature Importance in Penguins Species Classification Across Models",
+        "Experiment": "Extend the existing code to include feature importance analysis for Random Forest (using built-in feature importance), Logistic Regression (using coefficients), and SVM (using permutation importance or SHAP values). Visualize and compare the results to identify the most significant features across all models. Save the feature importance plots and coefficients in the output directory.",
+        "Interestingness": 9,
+        "Feasibility": 8,
+        "Novelty": 8,
+        "novel": true
+    }
+]
