@@ -1,0 +1,417 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{iclr2024_conference,times}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{titletoc}
+
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{cleveref}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\graphicspath{{../}} % To reference your generated figures, see below.
+\begin{filecontents}{references.bib}
+ 
+
+
+  @inproceedings{szegedy2014,
+  title={Intriguing properties of neural networks},
+  author={Szegedy, Christian and Zaremba, Wojciech and Sutskever, Ilya and Bruna, Joan and Erhan, Dumitru and Goodfellow, Ian and Fergus, Rob},
+  booktitle={International Conference on Learning Representations},
+  year={2014}
+}
+
+@inproceedings{goodfellow2015,
+  title={Explaining and harnessing adversarial examples},
+  author={Goodfellow, Ian J and Shlens, Jonathon and Szegedy, Christian},
+  booktitle={International Conference on Learning Representations},
+  year={2015}
+}
+
+
+@article{athalye2018obfuscated,
+  author    = {Athalye, Anish and Carlini, Nicholas and Wagner, David},
+  title     = {Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples},
+  journal   = {arXiv preprint arXiv:1802.00420},
+  year      = {2018},
+  url       = {https://doi.org/10.48550/arXiv.1802.00420}
+}
+
+@article{carlini2017towards,
+  author    = {Carlini, Nicholas and Wagner, David},
+  title     = {Towards evaluating the robustness of neural networks},
+  journal   = {arXiv preprint arXiv:1608.04644},
+  year      = {2017},
+  url       = {https://doi.org/10.48550/arXiv.1608.04644}
+}
+
+@article{eykholt2018robust,
+  author    = {Eykholt, Kevin and Evtimov, Ivan and Fernandes, Earlence and Li, Bo and Rahmati, Amir and Xiao, Chaowei and Prakash, Atul and Kohno, Tadayoshi and Song, Dawn},
+  title     = {Robust physical-world attacks on deep learning models},
+  journal   = {arXiv preprint arXiv:1707.08945},
+  year      = {2018},
+  url       = {https://doi.org/10.48550/arXiv.1707.08945}
+}
+
+@article{finlayson2019adversarial,
+  author    = {Finlayson, Samuel G. and Chung, H. W. and Kohane, Isaac S. and Beam, Andrew L.},
+  title     = {Adversarial attacks against medical deep learning systems},
+  journal   = {arXiv preprint arXiv:1804.05296},
+  year      = {2019},
+  url       = {https://doi.org/10.48550/arXiv.1804.05296}
+}
+
+@article{fursov2021adversarial,
+  author    = {Fursov, Ivan and Morozov, Mikhail and Kaploukhaya, Nikolay and Kovtun, Egor and Rivera-Castro, Ricardo and Gusev, Gleb and Babaev, Dmitry and Kireev, Ivan and Zaytsev, Alexander and Burnaev, Evgeny},
+  title     = {Adversarial attacks on deep models for financial transaction records},
+  journal   = {arXiv preprint arXiv:2106.08361},
+  year      = {2021},
+  url       = {https://doi.org/10.48550/arXiv.2106.08361}
+}
+
+@article{papernot2016towards,
+  author    = {Papernot, Nicolas and McDaniel, Patrick and Sinha, Arunesh and Wellman, Michael P.},
+  title     = {Towards the science of security and privacy in machine learning},
+  journal   = {arXiv preprint arXiv:1611.03814},
+  year      = {2016},
+  url       = {https://doi.org/10.48550/arXiv.1611.03814}
+}
+
+@article{wong2018provable,
+  author    = {Wong, Eric and Kolter, J. Zico},
+  title     = {Provable defenses against adversarial examples via the convex outer adversarial polytope},
+  journal   = {arXiv preprint arXiv:1711.00851},
+  year      = {2018},
+  url       = {https://doi.org/10.48550/arXiv.1711.00851}
+}
+
+
+
+@article{biggio2017evasion,
+  author    = {Biggio, Battista and Corona, Igino and Maiorca, Davide and Nelson, Blaine and Srndic, Nedim and Laskov, Pavel and Giacinto, Giorgio and Roli, Fabio},
+  title     = {Evasion Attacks Against Machine Learning at Test Time},
+  journal   = {arXiv preprint arXiv:1708.06131},
+  year      = {2017},
+  url       = {https://doi.org/10.48550/arXiv.1708.06131}
+}
+
+@article{chen2019robust,
+  author    = {Chen, Huan and Zhang, Huan and Boning, Duane and Hsieh, Cho-Jui},
+  title     = {Robust Decision Trees Against Adversarial Examples},
+  journal   = {arXiv preprint arXiv:1902.10660},
+  year      = {2019},
+  url       = {https://doi.org/10.48550/arXiv.1902.10660}
+}
+
+@article{kantchelian2016evasion,
+  author    = {Kantchelian, Alex and Tygar, J. Doug and Joseph, Anthony D.},
+  title     = {Evasion and Hardening of Tree Ensemble Classifiers},
+  journal   = {arXiv preprint arXiv:1509.07892},
+  year      = {2016},
+  url       = {https://doi.org/10.48550/arXiv.1509.07892}
+}
+
+@article{papernot2016transferability,
+  author    = {Papernot, Nicolas and McDaniel, Patrick and Goodfellow, Ian},
+  title     = {Transferability in Machine Learning: From Phenomena to Black-Box Attacks Using Adversarial Samples},
+  journal   = {arXiv preprint arXiv:1605.07277},
+  year      = {2016},
+  url       = {https://doi.org/10.48550/arXiv.1605.07277}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@article{madry2017,
+  title={Towards deep learning models resistant to adversarial attacks},
+  author={Madry, Aleksander and Makelov, Aleksandar and Schmidt, Ludwig and Tsipras, Dimitris and Vladu, Adrian},
+  journal={arXiv preprint arXiv:1706.06083},
+  booktitle={International Conference on Learning Representations},
+  year={2018},
+  url={https://arxiv.org/abs/1706.06083}
+}
+
+@article{chen2017zoo,
+  title={ZOO: Zeroth order optimization based black-box attacks to deep neural networks without training substitute models},
+  author={Chen, Pin-Yu and Zhang, Huan and Sharma, Yash and Yi, Jinfeng and Hsieh, Cho-Jui},
+  journal={Proceedings of the 10th ACM Workshop on Artificial Intelligence and Security},
+  year={2017},
+  url={https://arxiv.org/abs/1708.03999}
+}
+@article{alzantot2019,
+  author    = {Alzantot, Moustafa and Sharma, Yash and Chakraborty, Supriyo and Zhang, Huan and Hsieh, Cho-Jui and Srivastava, Mani},
+  title     = {GenAttack: Practical Black-box Attacks with Gradient-Free Optimization},
+  journal   = {arXiv preprint arXiv:1805.11090},
+  year      = {2019},
+  url       = {https://doi.org/10.48550/arXiv.1805.11090}
+}
+
+@article{chen2019poba,
+  author    = {Chen, Jinfeng and Su, Ming and Shen, Sheng and Xiong, Hui and Zheng, Huan},
+  title     = {POBA-GA: Perturbation Optimized Black-box Adversarial Attacks via Genetic Algorithm},
+  journal   = {arXiv preprint arXiv:1906.03181},
+  year      = {2019},
+  url       = {https://doi.org/10.48550/arXiv.1906.03181}
+}
+
+@article{ilie2021,
+  author    = {Ilie, Alexandru and Popescu, Marius and Stefanescu, Andrei},
+  title     = {EvoBA: An Evolution Strategy as a Strong Baseline for Black-box Adversarial Attacks},
+  journal   = {arXiv preprint arXiv:2107.05754},
+  year      = {2021},
+  url       = {https://doi.org/10.48550/arXiv.2107.05754}
+}
+
+@article{mosli2019,
+  author    = {Mosli, Rawan and Wright, Matthew and Yuan, Bo and Pan, Yang},
+  title     = {They Might Not Be Giants: Crafting Black-Box Adversarial Examples with Fewer Queries Using Particle Swarm Optimization},
+  journal   = {arXiv preprint arXiv:1909.07490},
+  year      = {2019},
+  url       = {https://doi.org/10.48550/arXiv.1909.07490}
+}
+
+@article{qiu2021,
+  author    = {Qiu, Haonan and Custode, Lorenzo Luigi and Iacca, Giovanni},
+  title     = {Black-box Adversarial Attacks Using Evolution Strategies},
+  journal   = {arXiv preprint arXiv:2104.15064},
+  year      = {2021},
+  url       = {https://doi.org/10.48550/arXiv.2104.15064}
+}
+
+@article{su2019one,
+  author    = {Su, Jiawei and Vargas, Danilo Vasconcellos and Sakurai, Kouichi},
+  title     = {One Pixel Attack for Fooling Deep Neural Networks},
+  journal   = {arXiv preprint arXiv:1710.08864},
+  year      = {2019},
+  url       = {https://doi.org/10.48550/arXiv.1710.08864}
+}
+
+@article{wang2022,
+  author    = {Wang, Jinglong and Yin, Zhiwei and Jiang, Jialiang and Du, Yipeng},
+  title     = {Attention-Guided Black-box Adversarial Attacks with Large-Scale Multiobjective Evolutionary Optimization},
+  journal   = {arXiv preprint arXiv:2101.07512},
+  year      = {2022},
+  url       = {https://doi.org/10.48550/arXiv.2101.07512}
+}
+
+
+@inproceedings{nguyen2015,
+  title={Deep neural networks are easily fooled: High confidence predictions for unrecognizable images},
+  author={Nguyen, Anh and Yosinski, Jason and Clune, Jeff},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  pages={427--436},
+  year={2015},
+  url={https://doi.org/10.1109/CVPR.2015.7298640}
+}
+
+@article{Clark_1994,
+	author = {Clark, A. and Toribio, J.},
+	date-added = {2018-03-12 15:11:42 +0000},
+	date-modified = {2018-03-12 15:11:42 +0000},
+	journal = {Synthese},
+	pages = {401-431},
+	title = {Doing without representing?},
+	volume = {101},
+	year = {1994},
+url={https://doi.org/10.1007/BF01063896}
+}
+
+
+@article{wang2004ssim,
+  title={Image quality assessment: From error visibility to structural similarity},
+  author={Wang, Zhou and Bovik, Alan C and Sheikh, Hamid R and Simoncelli, Eero P},
+  journal={IEEE Transactions on Image Processing},
+  volume={13},
+  number={4},
+  pages={600--612},
+  year={2004},
+  publisher={IEEE},
+  url={https://doi.org/10.1109/TIP.2003.819861}
+}
+
+
+@article{zhang2018unreasonable,
+  title={The unreasonable effectiveness of deep features as a perceptual metric},
+  author={Zhang, Richard and Isola, Phillip and Efros, Alexei A and Shechtman, Eli and Wang, Oliver},
+  journal={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={586--595},
+  year={2018}
+}
+
+@inproceedings{langenberg2019,
+  author    = {Langenberg, Philipp and Balda, Erik and Behboodi, Arash and Mathar, Rudolf},
+  title     = {On the Robustness of Support Vector Machines Against Adversarial Examples},
+  booktitle = {2019 13th International Conference on Signal Processing and Communication Systems (ICSPCS)},
+  year      = {2019},
+  pages     = {1--6},
+  doi       = {10.1109/ICSPCS47537.2019.9008746},
+  url       = {https://doi.org/10.1109/ICSPCS47537.2019.9008746},
+}
+
+@article{liu2023,
+  author    = {Liu, Yiming and Gu, Hongyu and Qin, Pan},
+  title     = {Evaluating Robustness of Support Vector Machines with the Lagrangian Dual Approach},
+  journal   = {arXiv},
+  year      = {2023},
+  eprint    = {2306.02639},
+  doi       = {10.48550/arXiv.2306.02639},
+  url       = {https://arxiv.org/abs/2306.02639},
+}
+
+@inproceedings{chen2018,
+  author    = {Chen, Yizheng and Wang, Weizhen and Zhang, Xinyu},
+  title     = {Randomizing SVM Against Adversarial Attacks Under Uncertainty},
+  booktitle = {Advances in Knowledge Discovery and Data Mining},
+  editor    = {Phung, Dinh and Tseng, Vincent S. and Webb, Geoffrey I. and Ho, Bao and Ganji, Mohadeseh and Rashidi, Lida},
+  year      = {2018},
+  publisher = {Springer International Publishing},
+  pages     = {556--568},
+  doi       = {10.1007/978-3-319-93040-4_44},
+  url       = {https://doi.org/10.1007/978-3-319-93040-4_44},
+}
+
+@article{ilyas2019adversarial,
+  title={Adversarial examples are not bugs, they are features},
+  author={Ilyas, Andrew and Santurkar, Shibani and Tsipras, Dimitris and Engstrom, Logan and Tran, Brandon and Madry, Aleksander},
+  journal={arXiv preprint arXiv:1905.02175},
+  year={2019},
+  doi={10.48550/arXiv.1905.02175},
+  url={https://doi.org/10.48550/arXiv.1905.02175}
+}
+
+@article{marstaller2013evolution,
+  title={The evolution of representation in simple cognitive networks},
+  author={Marstaller, Lars and Hintze, Arend and Adami, Christoph},
+  journal={arXiv preprint arXiv:1206.5771},
+  year={2013},
+  doi={10.48550/arXiv.1206.5771},
+  url={https://doi.org/10.48550/arXiv.1206.5771}
+}
+
+
+@article{skDigits,
+  title={Scikit-learn: Machine Learning in Python},
+  author={Pedregosa, Fabian and Varoquaux, Ga{\"e}l and Gramfort, Alexandre and Michel, Vincent and Thirion, Bertrand and Grisel, Olivier and Blondel, Mathieu and Prettenhofer, Peter and Weiss, Ron and Dubourg, Vincent and Vanderplas, Jake and Passos, Alexandre and Cournapeau, David and Brucher, Mathieu and Perrot, Matthieu and Duchesnay, {\'E}douard},
+  journal={Journal of Machine Learning Research},
+  volume={12},
+  pages={2825--2830},
+  year={2011},
+  url={https://arxiv.org/pdf/1201.0490}
+}
+
+
+
+@article{MNIST,
+  title={The MNIST database of handwritten digits},
+  author={LeCun, Yann and Bottou, Léon and Bengio, Yoshua and Haffner, Patrick},
+  journal={IEEE Transactions on Neural Networks},
+  volume={10},
+  number={5},
+  pages={1045--1054},
+  year={1998},
+  publisher={IEEE},
+  url={http://yann.lecun.com/exdb/mnist/}
+}
+
+@article{Fashion-MNIST,
+  title={Fashion-MNIST: A novel image dataset for benchmarking machine learning algorithms},
+  author={Xiao, Han and Rasul, Kashif and Vollgraf, Roland},
+  journal={arXiv preprint arXiv:1708.07747},
+  year={2017},
+  url={https://github.com/zalandoresearch/fashion-mnist}
+}
+
+\end{filecontents}
+
+\title{TITLE HERE}
+
+\author{GPT-4o \& Claude\\
+Department of Computer Science\\
+University of LLMs\\
+}
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+ABSTRACT HERE
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+INTRO HERE
+
+\section{Related Work}
+\label{sec:related}
+RELATED WORK HERE
+
+\section{Background}
+\label{sec:background}
+BACKGROUND HERE
+
+\section{Method}
+\label{sec:method}
+METHOD HERE
+
+\section{Experimental Setup}
+\label{sec:experimental}
+EXPERIMENTAL SETUP HERE
+
+\section{Results}
+\label{sec:results}
+RESULTS HERE
+
+% EXAMPLE FIGURE: REPLACE AND ADD YOUR OWN FIGURES / CAPTIONS
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{train_acc_x_div_y.png}
+        \label{fig:first-run}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{train_loss_x_div_y.png}
+        \label{fig:second-run}
+    \end{subfigure}
+    \caption{PLEASE FILL IN CAPTION HERE}
+    \label{fig:first_figure}
+\end{figure}
+
+\section{Conclusions and Future Work}
+\label{sec:conclusion}
+CONCLUSIONS HERE
+
+This work was generated by \textsc{The AI Scientist} \citep{lu2024aiscientist}.
+
+\bibliographystyle{iclr2024_conference}
+\bibliography{references}
+
+\end{document}

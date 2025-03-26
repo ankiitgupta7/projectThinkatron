@@ -1,0 +1,34 @@
+[
+  {
+      "Name": "confidence_fitness_ssim_tracking",
+      "Title": "Evolving Images to Maximize Confidence While Tracking SSIM",
+      "Experiment": "Use confidence as the fitness function to evolve images for each model and track SSIM over generations. Analyze how SSIM changes as confidence increases.",
+      "Interestingness": 9,
+      "Feasibility": 9,
+      "Novelty": 4
+  },
+  {
+      "Name": "ssim_fitness_confidence_tracking",
+      "Title": "Evolving Images to Maximize Structural Similarity While Tracking Confidence",
+      "Experiment": "Use SSIM as the fitness function to evolve images and track how model confidence changes over generations. Explore whether higher SSIM leads to higher confidence or if models reject structurally similar images.",
+      "Interestingness": 9,
+      "Feasibility": 9,
+      "Novelty": 4
+  },
+  {
+      "Name": "ssim_minus_confidence_fitness",
+      "Title": "Optimizing SSIM Minus Confidence to Identify Adversarial Stability",
+      "Experiment": "Use SSIM - Confidence as the fitness function to evolve images. Track both metrics to analyze cases where high SSIM doesn't guarantee high confidence, revealing possible adversarial instability.",
+      "Interestingness": 9,
+      "Feasibility": 9,
+      "Novelty": 4
+  },
+  {
+      "Name": "confidence_minus_mod_ssim_fitness",
+      "Title": "Balancing Confidence and SSIM Using Confidence MOD (SSIM) as Fitness",
+      "Experiment": "Use Confidence - |SSIM| as the fitness function to evolve images. This approach ensures SSIM remains positive while emphasizing high-confidence adversarial examples, revealing cases where models retain or lose confidence despite structural similarity.",
+      "Interestingness": 9,
+      "Feasibility": 9,
+      "Novelty": 4
+  }
+]

@@ -1,0 +1,4 @@
+{
+    "system": "You are an AI scientist studying adversarial attacks and model robustness in machine learning.",
+    "task_description": "Investigate how images can be evolved to maximize model confidence for a specific target class. Explore the impact of such adversarial examples on different machine learning models and analyze how structural similarity (SSIM) changes as confidence increases. Note that people might ridicule your results for not using state-of-the-art model dataset / model as you will be working with simple ML models and datasets from sklearn, but your challenge is to find interesting questions pushing state-of-the-art research in Machine Learning, even with the limitation of conducting the simplest of the experiments."
+}

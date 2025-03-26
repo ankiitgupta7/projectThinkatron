@@ -1,0 +1,56 @@
+[
+    {
+        "Name": "confidence_fitness_ssim_tracking",
+        "Title": "Evolving Images to Maximize Confidence While Tracking SSIM",
+        "Experiment": "Use confidence as the fitness function to evolve images for each model and track SSIM over generations. Analyze how SSIM changes as confidence increases.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 4,
+        "novel": true
+    },
+    {
+        "Name": "ssim_fitness_confidence_tracking",
+        "Title": "Evolving Images to Maximize Structural Similarity While Tracking Confidence",
+        "Experiment": "Use SSIM as the fitness function to evolve images and track how model confidence changes over generations. Explore whether higher SSIM leads to higher confidence or if models reject structurally similar images.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 4,
+        "novel": true
+    },
+    {
+        "Name": "ssim_minus_confidence_fitness",
+        "Title": "Optimizing SSIM Minus Confidence to Identify Adversarial Stability",
+        "Experiment": "Use SSIM - Confidence as the fitness function to evolve images. Track both metrics to analyze cases where high SSIM doesn't guarantee high confidence, revealing possible adversarial instability.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 4,
+        "novel": true
+    },
+    {
+        "Name": "confidence_minus_mod_ssim_fitness",
+        "Title": "Balancing Confidence and SSIM Using Confidence MOD (SSIM) as Fitness",
+        "Experiment": "Use Confidence - |SSIM| as the fitness function to evolve images. This approach ensures SSIM remains positive while emphasizing high-confidence adversarial examples, revealing cases where models retain or lose confidence despite structural similarity.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 4,
+        "novel": false
+    },
+    {
+        "Name": "cross_model_transferability",
+        "Title": "Cross-Model Adversarial Transferability: Evolving Targeted Attacks While Tracking All Models' Confidence and SSIM",
+        "Experiment": "Modify evaluate() to compute confidence for ALL models (not just the target) when evolving an image for a specific target model/class. Log all models' confidences + SSIM in CSV. Evolve images to maximize confidence for one model, then analyze: 1) Transfer success rate (other models' max class confidence) 2) SSIM thresholds for transferable attacks 3) Model pairs with asymmetric transfer patterns.",
+        "Interestingness": 9,
+        "Feasibility": 8,
+        "Novelty": 7,
+        "novel": true
+    },
+    {
+        "Name": "accuracy_robustness_tradeoff",
+        "Title": "Model Accuracy vs. Adversarial Robustness: Quantifying the Trade-off Using Evolved Examples",
+        "Experiment": "1) Add test accuracy computation for each model after training. 2) For each model-class pair, record best confidence and SSIM from evolved images. 3) Aggregate metrics (mean confidence/SSIM) per model. 4) Compute correlation coefficients between test accuracy and adversarial metrics. 5) Visualize if high-accuracy models require lower SSIM for high-confidence attacks.",
+        "Interestingness": 9,
+        "Feasibility": 9,
+        "Novelty": 7,
+        "novel": true
+    }
+]
